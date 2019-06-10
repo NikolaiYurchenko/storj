@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "rm -rf dist/ && npm run build && vue-cli-service serve -s dist",
+    "start": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test": "jest",

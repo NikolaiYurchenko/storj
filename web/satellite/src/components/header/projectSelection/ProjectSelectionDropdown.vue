@@ -2,8 +2,8 @@
 // See LICENSE for copying information.
 
 <template>
-    <div class="project-selection-choice-container" id="projectDropdown">
-        <div class="project-selection-overflow-container">
+    <div class="satellite-selection-choice-container" id="projectDropdown">
+        <div class="satellite-selection-overflow-container">
             <!-- loop for rendering projects -->
             <!-- TODO: add selection logic onclick -->
             <div class="project-selection-overflow-container__project-choice" v-on:click="onProjectSelected(project.id)" v-for="project in projects" v-bind:key="project.id" >
@@ -73,7 +73,7 @@ export default class ProjectSelectionDropdown extends Vue {
 </script>
 
 <style scoped lang="scss">
-    .project-selection-choice-container {
+    .satellite-selection-choice-container {
         position: absolute;
         top: 9vh;
         left: -5px;
@@ -83,7 +83,7 @@ export default class ProjectSelectionDropdown extends Vue {
         background-color: #FFFFFF;
         z-index: 1120;
     }
-    .project-selection-overflow-container {
+    .satellite-selection-overflow-container {
         position: relative;
         width: 226px;
         overflow-y: auto;
