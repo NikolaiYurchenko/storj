@@ -2,10 +2,8 @@
 // See LICENSE for copying information.
 
 <template>
-    <!-- To close popup we need to use method onCloseClick -->
     <div class="account-dropdown-choice-container" id="accountDropdown">
         <div class="account-dropdown-overflow-container">
-            <!-- TODO: add selection logic onclick -->
             <div class="account-dropdown-item-container settings" v-on:click="onAccountSettingsClick" >
                 <div class="account-dropdown-item-container__image-container">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

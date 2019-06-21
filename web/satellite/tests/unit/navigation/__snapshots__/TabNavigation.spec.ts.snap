@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabNavigation.vue renders correctly 1`] = `<div class="tab-navigation-container"></div>`;

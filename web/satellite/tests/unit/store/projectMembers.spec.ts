@@ -4,7 +4,7 @@
 import { projectMembersModule } from '@/store/modules/projectMembers';
 import { createLocalVue } from '@vue/test-utils';
 import * as api from '@/api/projectMembers';
-import { addProjectMembersRequest } from '@/api/projectMembers';
+// import { addProjectMembersRequest } from '@/api/projectMembers';
 import { PROJECT_MEMBER_MUTATIONS } from '@/store/mutationConstants';
 import Vuex from 'vuex';
 

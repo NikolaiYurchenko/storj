@@ -39,7 +39,9 @@
     "css-loader": "^1.0.0",
     "eslint": "^5.9.0",
     "eslint-plugin-vue": "^5.0.0",
+    "html-loader-jest": "^0.2.1",
     "jest-fetch-mock": "^2.1.0",
+    "jest-transform-stub": "^2.0.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.0.1",
     "sinon": "^7.0.0",
@@ -92,10 +94,12 @@
       "^.+\\.js$": "babel-jest",
       "^.+\\.vue$": "vue-jest",
       ".+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
-      "^.+\\.tsx?$": "ts-jest"
+      "^.+\\.(ts|tsx)$": "ts-jest",
+      "^.+\\.html?$": "html-loader-jest"
     },
     "transformIgnorePatterns": [
-      "/node_modules/(?!(apollo-client|apollo-link))"
+      "/node_modules/(?!(apollo-client|apollo-link|apollo-link-http|apollo-cache-inmemory|apollo-link-context))",
+      "node_modules/*"
     ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"

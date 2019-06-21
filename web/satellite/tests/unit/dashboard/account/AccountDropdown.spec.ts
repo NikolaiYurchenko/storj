@@ -6,7 +6,6 @@ import AccountDropdown from '@/components/header/AccountDropdown.vue';
 import * as sinon from 'sinon';
 
 describe('AccountDropdown.vue', () => {
-
     it('renders correctly', () => {
 
         const wrapper = shallowMount(AccountDropdown);
@@ -14,23 +13,45 @@ describe('AccountDropdown.vue', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('trigger onPress correctly', () => {
-        let onCloseSpy = sinon.spy();
+    it('trigger onAccountSettingsClick correctly', () => {
+        let routerSpy = sinon.spy();
+        let dispatchSpy = sinon.spy();
 
         const wrapper = mount(AccountDropdown, {
-            propsData: {
-                onClose: onCloseSpy
-            },
             mocks: {
                 $router: {
-                    push: onCloseSpy
+                    push: routerSpy
+                },
+                $store: {
+                    dispatch: dispatchSpy
                 }
             }
         });
 
-        wrapper.find('.adItemContainer.settings').trigger('click');
+        wrapper.find('.account-dropdown-item-container.settings').trigger('click');
 
-        expect(onCloseSpy.callCount).toBe(1);
-        expect(wrapper.emitted('onClose').length).toEqual(1);
+        expect(routerSpy.callCount).toBe(1);
+        expect(dispatchSpy.callCount).toBe(1);
+    });
+
+    it('trigger onLogoutClick correctly', () => {
+        let routerSpy = sinon.spy();
+        let dispatchSpy = sinon.spy();
+
+        const wrapper = mount(AccountDropdown, {
+            mocks: {
+                $router: {
+                    push: routerSpy
+                },
+                $store: {
+                    dispatch: dispatchSpy
+                }
+            }
+        });
+
+        wrapper.find('.account-dropdown-item-container.logout').trigger('click');
+
+        expect(routerSpy.callCount).toBe(1);
+        expect(dispatchSpy.callCount).toBe(5);
     });
 });

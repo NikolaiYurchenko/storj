@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountArea.vue renders correctly 1`] = `
+<div class="account-area-container">
+  <h1>Account</h1>
+  <tabnavigation-stub navigation="[object Object]" class="account-area-container__navigation"></tabnavigation-stub>
+  <router-view-stub></router-view-stub>
+</div>
+`;

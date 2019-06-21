@@ -46,7 +46,7 @@
 						:error="confirmationPasswordError"
 						@setData="setPasswordConfirmation" />
 				<div class="change-password-popup__form-container__button-container">
-					<Button label="Cancel" width="205px" height="48px" :onPress="onCloseClick" isWhite />
+					<Button id="cancel-button" label="Cancel" width="205px" height="48px" :onPress="onCloseClick" isWhite />
 					<Button label="Update" width="205px" height="48px" :onPress="onUpdateClick" />
 				</div>
 			</div>

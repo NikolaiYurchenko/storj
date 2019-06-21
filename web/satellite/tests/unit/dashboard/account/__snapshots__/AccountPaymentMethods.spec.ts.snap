@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountPaymentMethods.vue renders correctly 1`] = `
+<div class="payment-methods-container">
+  <div class="payment-methods-container__card-container">
+    <div class="payment-methods-container__card-container__info-area"><img src="../../../static/images/Logo.svg" class="payment-methods-container__card-container__info-area__card-logo">
+      <div class="payment-methods-container__card-container__info-area__info-container">
+        <h1>xxxx 0000</h1>
+        <h2>Shawn Wilkinson</h2>
+      </div>
+      <div class="payment-methods-container__card-container__info-area__expire-container">
+        <h2>Expires</h2>
+        <h1>12/2020</h1>
+      </div>
+      <h3 class="payment-methods-container__card-container__info-area__added-text">Added on 29 May 2019</h3>
+    </div>
+    <div class="payment-methods-container__card-container__default-button">
+      <p class="payment-methods-container__card-container__default-button__label">Default</p>
+    </div>
+    <!---->
+  </div>
+  <button-stub label="Add Card" width="140px" height="48px" isdisabled="true" onpress="() => {
+          /* istanbul ignore next */cov_24rw75ro5f.f[1]++;
+          cov_24rw75ro5f.s[8]++;
+
+          console.error('onPress is not reinitialized');
+        }" class="payment-methods-container__add-button"></button-stub>
+</div>
+`;
