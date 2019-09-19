@@ -3,6 +3,7 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { extractVuexModule } from "vuex-class-component";
 
 import { ApiKeysApiGql } from '@/api/apiKeys';
 import { BucketsApiGql } from '@/api/buckets';
@@ -13,7 +14,7 @@ import { ProjectUsageApiGql } from '@/api/usage';
 import { UsersApiGql } from '@/api/users';
 import { makeApiKeysModule } from '@/store/modules/apiKeys';
 import { appStateModule } from '@/store/modules/appState';
-import { makeBucketsModule } from '@/store/modules/buckets';
+import { BucketsModule } from '@/store/modules/buckets';
 import { makeCreditsModule } from '@/store/modules/credits';
 import { makeNotificationsModule } from '@/store/modules/notifications';
 import { projectPaymentsMethodsModule } from '@/store/modules/paymentMethods';
@@ -21,6 +22,7 @@ import { makeProjectMembersModule } from '@/store/modules/projectMembers';
 import { makeProjectsModule } from '@/store/modules/projects';
 import { makeUsageModule } from '@/store/modules/usage';
 import { makeUsersModule } from '@/store/modules/users';
+import {createProxy, VuexModule} from 'vuex-class-component/js';
 
 Vue.use(Vuex);
 
@@ -52,8 +54,13 @@ const store = new Vuex.Store({
         usersModule: makeUsersModule(usersApi),
         projectsModule: makeProjectsModule(projectsApi),
         usageModule: makeUsageModule(projectUsageApi),
-        bucketUsageModule: makeBucketsModule(bucketsApi),
+        ...extractVuexModule(new BucketsModule(bucketsApi)),
+        // bucketUsageModule: makeBucketsModule(bucketsApi),
     },
 });
+
+const vxm = {
+    user: createProxy( new BucketsModule(bucketsApi) ),
+}
 
 export default store;
