@@ -26,6 +26,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import AccountSettingsIcon from '@/../static/images/header/accountSettings.svg';
 import LogoutIcon from '@/../static/images/header/logout.svg';
 
+import { AuthHttpApi } from '@/api/auth';
 import { RouteConfig } from '@/router';
 import { BUCKET_ACTIONS } from '@/store/modules/buckets';
 import { PROJECTS_ACTIONS } from '@/store/modules/projects';
@@ -45,6 +46,8 @@ import { LocalData } from '@/utils/localData';
     },
 })
 export default class AccountDropdown extends Vue {
+    private readonly auth: AuthHttpApi = new AuthHttpApi();
+
     public onCloseClick(): void {
         this.$store.dispatch(APP_STATE_ACTIONS.TOGGLE_ACCOUNT);
     }
@@ -54,7 +57,8 @@ export default class AccountDropdown extends Vue {
         this.$store.dispatch(APP_STATE_ACTIONS.TOGGLE_ACCOUNT);
     }
 
-    public onLogoutClick(): void {
+    public async onLogoutClick(): Promise<void> {
+        await this.auth.logout();
         this.$router.push(RouteConfig.Login.path);
         this.$store.dispatch(PM_ACTIONS.CLEAR);
         this.$store.dispatch(PROJECTS_ACTIONS.CLEAR);
